@@ -58,12 +58,10 @@ const services = [
   {
     title: 'Roteiro personalizado',
     text: 'Dias organizados por parque, ritmo da família e prioridades.',
-    cta: { label: 'Falar no WhatsApp', href: waUrl },
   },
   {
     title: 'Concierge de viagem',
     text: 'Orientação antes e durante a viagem para você aproveitar sem stress.',
-    cta: { label: 'Falar no WhatsApp', href: waUrl },
   },
   {
     title: 'Ingressos e hotéis',
@@ -73,7 +71,6 @@ const services = [
   {
     title: 'Grupos e celebrações',
     text: 'Aniversários, lua de mel e viagens em grupo com atenção especial.',
-    cta: { label: 'Falar no WhatsApp', href: waUrl },
   },
 ];
 ---
@@ -167,17 +164,24 @@ const services = [
             <article class="card service-card">
               <h3>{svc.title}</h3>
               <p>{svc.text}</p>
-              <a
-                class="btn btn-outline"
-                href={svc.cta.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {svc.cta.label}
-              </a>
+              {svc.cta && (
+                <a
+                  class="btn btn-outline"
+                  href={svc.cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {svc.cta.label}
+                </a>
+              )}
             </article>
           ))
         }
+      </div>
+      <div class="services-cta">
+        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">
+          Falar no WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -344,6 +348,12 @@ const services = [
     color: white;
     font-weight: 700;
     margin-bottom: 0.75rem;
+  }
+
+  .services-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
   }
 
   .about-grid {
