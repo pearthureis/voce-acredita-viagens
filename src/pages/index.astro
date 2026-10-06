@@ -90,7 +90,7 @@ const services = [
         <p class="eyebrow">Você Acredita?</p>
         <h1>Experiências mágicas,<br />memórias eternas</h1>
         <p class="hero-lead">
-          Especialistas em Orlando, Disney, Universal e SeaWorld. Planejamos sua viagem dos sonhos
+          Especialistas em Orlando. Planejamos sua viagem dos sonhos
           e você reserva com segurança na nossa loja online.
         </p>
         <div class="hero-actions">
@@ -186,11 +186,12 @@ const services = [
     <div class="container about-grid">
       <div class="about-visual">
         <img
-          src="/brand/logo-on-red-stamp.jpg"
-          alt="Marca Você Acredita Viagens"
-          width="360"
-          height="360"
-          class="about-logo"
+          src="/brand/ellen-reis.jpg"
+          alt="Ellen Reis, fundadora da Você Acredita Viagens, em Orlando"
+          width="1200"
+          height="1600"
+          class="about-photo"
+          loading="lazy"
         />
       </div>
       <div>
@@ -357,9 +358,13 @@ const services = [
     }
   }
 
-  .about-logo {
-    width: min(100%, 320px);
+  .about-photo {
+    width: min(100%, 360px);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center 20%;
     margin-inline: auto;
+    display: block;
     border-radius: 24px;
     box-shadow: var(--shadow);
   }

@@ -15,7 +15,7 @@ const pathname = Astro.url.pathname;
       />
       <span class="brand-text">
         <span class="brand-voce">Você</span>
-        <span class="brand-acredita script">Acredita</span>
+        <span class="brand-acredita">Acredita</span>
         <span class="brand-viagens">Viagens</span>
       </span>
     </a>
@@ -105,9 +105,12 @@ const pathname = Astro.url.pathname;
   }
 
   .brand-acredita {
-    font-size: 1.55rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
     color: var(--coral);
-    line-height: 1;
+    line-height: 1.15;
   }
 
   .nav {
