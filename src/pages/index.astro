@@ -64,11 +64,6 @@ const services = [
     text: 'Orientação antes e durante a viagem para você aproveitar sem stress.',
   },
   {
-    title: 'Ingressos e hotéis',
-    text: 'Reserve com segurança na nossa loja online parceira.',
-    cta: { label: 'Ir à loja', href: shopUrl },
-  },
-  {
     title: 'Grupos e celebrações',
     text: 'Aniversários, lua de mel e viagens em grupo com atenção especial.',
   },
@@ -158,30 +153,20 @@ const services = [
       <p class="section-lead">
         Atendimento humano no WhatsApp.
       </p>
-      <div class="card-grid cols-2">
+      <div class="card service-box">
         {
           services.map((svc) => (
-            <article class="card service-card">
+            <div class="service-item">
               <h3>{svc.title}</h3>
               <p>{svc.text}</p>
-              {svc.cta && (
-                <a
-                  class="btn btn-outline"
-                  href={svc.cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {svc.cta.label}
-                </a>
-              )}
-            </article>
+            </div>
           ))
         }
-      </div>
-      <div class="services-cta">
-        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">
-          Falar no WhatsApp
-        </a>
+        <div class="services-cta">
+          <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">
+            Falar no WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -350,10 +335,30 @@ const services = [
     margin-bottom: 0.75rem;
   }
 
+  .service-box {
+    max-width: 760px;
+    margin-inline: auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .service-item + .service-item {
+    border-top: 1px solid rgba(253, 172, 171, 0.45);
+    padding-top: 1.5rem;
+  }
+
+  .service-item h3 {
+    margin-bottom: 0.35rem;
+  }
+
+  .service-item p {
+    margin: 0;
+  }
+
   .services-cta {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
   }
 
   .about-grid {
