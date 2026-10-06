@@ -1,0 +1,75 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+const shopUrl = 'https://voceacreditaviagensv2.justtraveltour.com/pt';
+const waUrl = 'https://wa.me/5511994584598';
+---
+
+<section class:list={['shop-cta', { compact }]}>
+  <div class="container shop-inner">
+    <div>
+      <p class="eyebrow">Você Acredita?</p>
+      <h2>Pronto para viver experiências mágicas?</h2>
+      <p>
+        Reserve hotéis, ingressos e experiências na nossa loja online ou fale com a Ellen no
+        WhatsApp para um roteiro personalizado.
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href={shopUrl} target="_blank" rel="noopener noreferrer">
+        Ir à loja
+      </a>
+      <a class="btn btn-outline" href={waUrl} target="_blank" rel="noopener noreferrer">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .shop-cta {
+    background: linear-gradient(135deg, var(--bg-soft), #ffe4e4);
+    padding: 3rem 0;
+  }
+
+  .shop-cta.compact {
+    padding: 2rem 0;
+    margin: 2.5rem 0 0;
+    border-radius: var(--radius);
+  }
+
+  .shop-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .shop-inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--ink-muted);
+    max-width: 36rem;
+    margin: 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+</style>

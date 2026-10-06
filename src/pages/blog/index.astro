@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDatePtBR } from '../../lib/format';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ShopCTA from '../../components/ShopCTA.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout
+  title="Blog"
+  description="Dicas de Orlando, Disney e viagens mágicas — blog da Você Acredita Viagens."
+>
+  <Header slot="header" />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Blog</p>
+      <h1>Dicas e inspirações</h1>
+      <p>Conteúdo para planejar experiências mágicas e memórias eternas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {
+        posts.length === 0 ? (
+          <p>Em breve novos posts.</p>
+        ) : (
+          <ul class="post-list">
+            {posts.map((post) => (
+              <li>
+                <article class="card">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {formatDatePtBR(post.data.pubDate)}
+                  </time>
+                  <h2>
+                    <a href={`/blog/${post.id}`}>{post.data.title}</a>
+                  </h2>
+                  <p>{post.data.description}</p>
+                  {
+                    post.data.tags?.length ? (
+                      <ul class="tags">
+                        {post.data.tags.map((tag) => (
+                          <li>{tag}</li>
+                        ))}
+                      </ul>
+                    ) : null
+                  }
+                  <a class="read-more" href={`/blog/${post.id}`}>
+                    Ler post →
+                  </a>
+                </article>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  <ShopCTA />
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--bg-soft);
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .page-hero p:last-child {
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  h2 a {
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  h2 a:hover {
+    color: var(--red);
+  }
+
+  .tags {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tags li {
+    background: var(--bg-soft);
+    color: var(--red);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+  }
+
+  .read-more {
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>

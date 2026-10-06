@@ -1,0 +1,386 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDatePtBR } from '../lib/format';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ShopCTA from '../components/ShopCTA.astro';
+
+const shopUrl = 'https://voceacreditaviagensv2.justtraveltour.com/pt';
+const waUrl = 'https://wa.me/5511994584598';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const parks = [
+  {
+    title: 'Orlando',
+    text: 'A capital da magia: resorts, gastronomia e dias inesquecíveis em família.',
+    icon: '✈️',
+  },
+  {
+    title: 'Disney',
+    text: 'Magic Kingdom, EPCOT, Hollywood Studios e Animal Kingdom com roteiro sob medida.',
+    icon: '✨',
+  },
+  {
+    title: 'Universal',
+    text: 'Harry Potter, montanhas-russas e os novos parques — adrenalina com planejamento.',
+    icon: '🎢',
+  },
+  {
+    title: 'SeaWorld',
+    text: 'Shows, aquários e atrações aquáticas para completar a experiência em Orlando.',
+    icon: '🌊',
+  },
+];
+
+const steps = [
+  {
+    n: '1',
+    title: 'Conte seu sonho',
+    text: 'Datas, orçamento, quem viaja e o que não pode faltar no roteiro.',
+  },
+  {
+    n: '2',
+    title: 'Planejamos juntos',
+    text: 'Hotéis, ingressos, transfers e dicas práticas — tudo alinhado com você.',
+  },
+  {
+    n: '3',
+    title: 'Reserve na loja',
+    text: 'Checkout seguro na Just Travel Tour, com acompanhamento da Ellen.',
+  },
+];
+
+const services = [
+  {
+    title: 'Roteiro personalizado',
+    text: 'Dias organizados por parque, ritmo da família e prioridades.',
+    cta: { label: 'Falar no WhatsApp', href: waUrl },
+  },
+  {
+    title: 'Concierge de viagem',
+    text: 'Orientação antes e durante a viagem para você aproveitar sem stress.',
+    cta: { label: 'Falar no WhatsApp', href: waUrl },
+  },
+  {
+    title: 'Ingressos e hotéis',
+    text: 'Reserve com segurança na nossa loja online parceira.',
+    cta: { label: 'Ir à loja', href: shopUrl },
+  },
+  {
+    title: 'Grupos e celebrações',
+    text: 'Aniversários, lua de mel e viagens em grupo com atenção especial.',
+    cta: { label: 'Falar no WhatsApp', href: waUrl },
+  },
+];
+---
+
+<BaseLayout
+  title="Você Acredita Viagens"
+  description="Experiências mágicas, memórias eternas. Landing e blog da Você Acredita Viagens — especialistas em Orlando."
+>
+  <Header slot="header" />
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Você Acredita?</p>
+        <h1>Experiências mágicas,<br />memórias eternas</h1>
+        <p class="hero-lead">
+          Especialistas em Orlando, Disney, Universal e SeaWorld. Planejamos sua viagem dos sonhos
+          e você reserva com segurança na nossa loja online.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-white" href={shopUrl} target="_blank" rel="noopener noreferrer">
+            Ir à loja
+          </a>
+          <a class="btn btn-outline hero-outline" href="/contato">Falar conosco</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img
+          src="/brand/logo-on-red.jpg"
+          alt="Logo Você Acredita Viagens"
+          width="480"
+          height="480"
+          class="hero-logo"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="parques" aria-labelledby="parques-title">
+    <div class="container">
+      <p class="eyebrow" style="display:block;text-align:center">Destinos</p>
+      <h2 class="section-title" id="parques-title">Foco em Orlando e parques</h2>
+      <p class="section-lead">
+        Magia, adrenalina e memórias em família — com planejamento cuidadoso do início ao fim.
+      </p>
+      <div class="card-grid cols-4">
+        {
+          parks.map((park) => (
+            <article class="card park-card">
+              <span class="park-icon" aria-hidden="true">
+                {park.icon}
+              </span>
+              <h3>{park.title}</h3>
+              <p>{park.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="como-funciona" aria-labelledby="como-title">
+    <div class="container">
+      <p class="eyebrow" style="display:block;text-align:center">Simples assim</p>
+      <h2 class="section-title" id="como-title">Como funciona</h2>
+      <p class="section-lead">Três passos para transformar o sonho em viagem.</p>
+      <div class="card-grid cols-3">
+        {
+          steps.map((step) => (
+            <article class="card step-card">
+              <span class="step-n">{step.n}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servicos" aria-labelledby="servicos-title">
+    <div class="container">
+      <p class="eyebrow" style="display:block;text-align:center">Serviços</p>
+      <h2 class="section-title" id="servicos-title">Como podemos te ajudar</h2>
+      <p class="section-lead">
+        Atendimento humano no WhatsApp e reserva na loja Just Travel.
+      </p>
+      <div class="card-grid cols-2">
+        {
+          services.map((svc) => (
+            <article class="card service-card">
+              <h3>{svc.title}</h3>
+              <p>{svc.text}</p>
+              <a
+                class="btn btn-outline"
+                href={svc.cta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {svc.cta.label}
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="sobre" aria-labelledby="sobre-title">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <img
+          src="/brand/logo-on-red-stamp.jpg"
+          alt="Marca Você Acredita Viagens"
+          width="360"
+          height="360"
+          class="about-logo"
+        />
+      </div>
+      <div>
+        <p class="eyebrow">Sobre</p>
+        <h2 id="sobre-title">Ellen Reis</h2>
+        <p>
+          Fundadora da Você Acredita Viagens, Ellen acredita que cada viagem pode ser uma história
+          mágica — especialmente quando o destino é Orlando. Com atenção aos detalhes, ela
+          acompanha famílias e grupos do primeiro “e se a gente for?” até o retorno para casa.
+        </p>
+        <p>
+          O nome da marca é um convite: <strong class="script" style="font-size:1.4rem;color:var(--coral)"
+            >Você Acredita?</strong
+          >
+        </p>
+        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">
+          Conversar com a Ellen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog" aria-labelledby="blog-title">
+    <div class="container">
+      <p class="eyebrow" style="display:block;text-align:center">Blog</p>
+      <h2 class="section-title" id="blog-title">Dicas e inspirações</h2>
+      <p class="section-lead">Conteúdo para planejar melhor a sua próxima aventura.</p>
+      <div class="card-grid cols-3">
+        {
+          posts.map((post) => (
+            <article class="card post-card">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {formatDatePtBR(post.data.pubDate)}
+              </time>
+              <h3>
+                <a href={`/blog/${post.id}`}>{post.data.title}</a>
+              </h3>
+              <p>{post.data.description}</p>
+              <a href={`/blog/${post.id}`}>Ler post →</a>
+            </article>
+          ))
+        }
+      </div>
+      <p class="blog-more">
+        <a class="btn btn-outline" href="/blog">Ver todos os posts</a>
+      </p>
+    </div>
+  </section>
+
+  <ShopCTA />
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(145deg, var(--red) 0%, #d92a28 55%, #b91c1a 100%);
+    color: var(--white);
+    padding: 3.5rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .hero .eyebrow {
+    color: var(--pink);
+    font-size: 2rem;
+  }
+
+  .hero-lead {
+    font-size: 1.05rem;
+    opacity: 0.95;
+    max-width: 34rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-outline {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-logo {
+    width: min(100%, 380px);
+    border-radius: 24px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  }
+
+  .park-card h3,
+  .step-card h3,
+  .service-card h3,
+  .post-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .park-card p,
+  .step-card p,
+  .service-card p,
+  .post-card p {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .park-icon {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: var(--coral);
+    color: white;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 800px) {
+    .about-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+
+  .about-logo {
+    width: min(100%, 320px);
+    margin-inline: auto;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .post-card time {
+    font-size: 0.8rem;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
+  .post-card h3 a {
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .post-card h3 a:hover {
+    color: var(--red);
+  }
+
+  .blog-more {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

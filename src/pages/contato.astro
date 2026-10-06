@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const shopUrl = 'https://voceacreditaviagensv2.justtraveltour.com/pt';
+const waUrl = 'https://wa.me/5511994584598';
+---
+
+<BaseLayout
+  title="Contato"
+  description="Fale com a Ellen Reis — Você Acredita Viagens. WhatsApp, e-mail e endereço em São Paulo."
+>
+  <Header slot="header" />
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Contato</p>
+      <h1>Vamos planejar sua viagem?</h1>
+      <p>Atendimento humano, sem formulários complicados.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <article class="card">
+        <h2>WhatsApp</h2>
+        <p>Resposta rápida para tirar dúvidas e montar o roteiro.</p>
+        <p class="big">
+          <a href={waUrl} target="_blank" rel="noopener noreferrer">(11) 99458-4598</a>
+        </p>
+        <a class="btn btn-primary" href={waUrl} target="_blank" rel="noopener noreferrer">
+          Abrir WhatsApp
+        </a>
+      </article>
+
+      <article class="card">
+        <h2>E-mail</h2>
+        <p>Para orçamentos e propostas por escrito.</p>
+        <p class="big">
+          <a href="mailto:vc.acreditaconsultoria@gmail.com">vc.acreditaconsultoria@gmail.com</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Endereço</h2>
+        <p>Rua Antonio Ambuba, 32 — São Paulo</p>
+        <p>Fundadora: <strong>Ellen Reis</strong></p>
+      </article>
+
+      <article class="card">
+        <h2>Redes e loja</h2>
+        <ul class="links">
+          <li>
+            <a
+              href="https://www.instagram.com/voceacreditaviagens/"
+              target="_blank"
+              rel="noopener noreferrer">Instagram @voceacreditaviagens</a
+            >
+          </li>
+          <li>
+            <a href={shopUrl} target="_blank" rel="noopener noreferrer"
+              >Loja Just Travel Tour (checkout)</a
+            >
+          </li>
+        </ul>
+        <a class="btn btn-outline" href={shopUrl} target="_blank" rel="noopener noreferrer">
+          Ir à loja
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--bg-soft);
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .page-hero p:last-child {
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 700px) {
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  .big {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+</style>

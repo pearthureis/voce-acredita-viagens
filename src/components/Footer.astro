@@ -1,0 +1,131 @@
+---
+const shopUrl = 'https://voceacreditaviagensv2.justtraveltour.com/pt';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand script">Você Acredita?</p>
+      <p class="footer-slogan">Experiências mágicas, memórias eternas</p>
+      <p class="footer-note">
+        O checkout de hotéis, ingressos e experiências é feito na loja{' '}
+        <a href={shopUrl} target="_blank" rel="noopener noreferrer">Just Travel Tour</a>,
+        parceira oficial da Você Acredita Viagens.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Contato</h2>
+      <ul class="footer-list">
+        <li>Ellen Reis</li>
+        <li>Rua Antonio Ambuba, 32 — São Paulo</li>
+        <li>
+          <a href="mailto:vc.acreditaconsultoria@gmail.com">vc.acreditaconsultoria@gmail.com</a>
+        </li>
+        <li>
+          <a href="https://wa.me/5511994584598" target="_blank" rel="noopener noreferrer"
+            >(11) 99458-4598</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/voceacreditaviagens/"
+            target="_blank"
+            rel="noopener noreferrer">Instagram @voceacreditaviagens</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Navegação</h2>
+      <ul class="footer-list">
+        <li><a href="/">Início</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contato">Contato</a></li>
+        <li>
+          <a href={shopUrl} target="_blank" rel="noopener noreferrer">Loja</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {year} Você Acredita Viagens. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--red);
+    color: var(--white);
+    padding: 3.5rem 0 1.5rem;
+    margin-top: 0;
+  }
+
+  .site-footer a {
+    color: var(--pink);
+  }
+
+  .site-footer a:hover {
+    color: var(--white);
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 0.8fr;
+    }
+  }
+
+  .footer-brand {
+    font-size: 2.4rem;
+    margin: 0 0 0.25rem;
+    color: var(--pink);
+  }
+
+  .footer-slogan {
+    font-style: italic;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+  }
+
+  .footer-note {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    max-width: 28rem;
+  }
+
+  .footer-heading {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+</style>
