@@ -66,7 +66,7 @@ const { Content } = await render(post);
   .page-hero {
     background: var(--bg-soft);
     padding: 3rem 0 2rem;
-    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+    border-bottom: 1px solid var(--border-soft);
   }
 
   .narrow {
@@ -96,13 +96,13 @@ const { Content } = await render(post);
   }
 
   .tags li {
-    background: var(--white);
-    color: var(--red);
+    background: var(--surface);
+    color: var(--accent);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
-    border: 1px solid rgba(253, 172, 171, 0.7);
+    border: 1px solid var(--border-strong);
   }
 
   .prose {
@@ -112,7 +112,7 @@ const { Content } = await render(post);
   .prose :global(h2) {
     font-size: 1.35rem;
     margin-top: 2rem;
-    color: var(--red);
+    color: var(--accent);
   }
 
   .prose :global(h3) {
@@ -136,7 +136,7 @@ const { Content } = await render(post);
 
   .prose :global(hr) {
     border: none;
-    border-top: 1px solid rgba(253, 172, 171, 0.6);
+    border-top: 1px solid var(--border-rule);
     margin: 2rem 0;
   }
 

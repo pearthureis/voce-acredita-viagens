@@ -21,6 +21,29 @@ const pathname = Astro.url.pathname;
     </a>
 
     <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Ativar modo escuro"
+      title="Ativar modo escuro"
+    >
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <path
+          d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"></path>
+        </g>
+      </svg>
+    </button>
+
+    <button
       class="nav-toggle"
       type="button"
       aria-expanded="false"
@@ -54,6 +77,47 @@ const pathname = Astro.url.pathname;
     toggle.setAttribute('aria-label', open ? 'Abrir menu' : 'Fechar menu');
     nav?.classList.toggle('open', !open);
   });
+
+  // Alternância de tema: salva a escolha; sem escolha salva, segue o sistema.
+  const root = document.documentElement;
+  const themeBtn = document.querySelector<HTMLButtonElement>('.theme-toggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const lightMeta = themeMeta?.getAttribute('content') ?? '#F63734';
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+  function syncThemeUi(theme: string) {
+    const label = theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro';
+    themeBtn?.setAttribute('aria-label', label);
+    themeBtn?.setAttribute('title', label);
+    themeMeta?.setAttribute('content', theme === 'dark' ? '#1b1315' : lightMeta);
+  }
+
+  function applyTheme(theme: string, animate = false) {
+    if (animate) {
+      root.classList.add('theme-switching');
+      window.setTimeout(() => root.classList.remove('theme-switching'), 350);
+    }
+    root.setAttribute('data-theme', theme);
+    syncThemeUi(theme);
+  }
+
+  syncThemeUi(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+  themeBtn?.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next, true);
+    try {
+      localStorage.setItem('theme', next);
+    } catch {}
+  });
+
+  darkQuery.addEventListener('change', (e) => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem('theme');
+    } catch {}
+    if (saved !== 'dark' && saved !== 'light') applyTheme(e.matches ? 'dark' : 'light', true);
+  });
 </script>
 
 <style>
@@ -61,9 +125,9 @@ const pathname = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+    border-bottom: 1px solid var(--border-soft);
   }
 
   .header-inner {
@@ -80,6 +144,7 @@ const pathname = Astro.url.pathname;
     gap: 0.75rem;
     text-decoration: none;
     color: var(--ink);
+    margin-right: auto;
   }
 
   .brand-logo {
@@ -87,7 +152,7 @@ const pathname = Astro.url.pathname;
     height: 48px;
     border-radius: 12px;
     object-fit: cover;
-    box-shadow: 0 4px 14px rgba(246, 55, 52, 0.25);
+    box-shadow: var(--logo-shadow);
   }
 
   .brand-text {
@@ -128,7 +193,47 @@ const pathname = Astro.url.pathname;
 
   .nav a:not(.btn):hover,
   .nav a.active {
-    color: var(--red);
+    color: var(--accent);
+  }
+
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--bg-soft);
+    border-color: var(--coral);
+    transform: translateY(-1px);
+  }
+
+  .theme-toggle svg {
+    display: block;
+  }
+
+  .theme-toggle .icon-sun,
+  :global(html[data-theme='dark']) .theme-toggle .icon-moon {
+    display: none;
+  }
+
+  :global(html[data-theme='dark']) .theme-toggle .icon-sun {
+    display: block;
+  }
+
+  /* Sem JavaScript o botão não funciona: esconda-o (o tema segue o sistema). */
+  :global(html:not([data-theme])) .theme-toggle {
+    display: none;
   }
 
   .nav-toggle {
@@ -145,7 +250,7 @@ const pathname = Astro.url.pathname;
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--red);
+    background: var(--accent);
   }
 
   .nav.open {
@@ -155,9 +260,9 @@ const pathname = Astro.url.pathname;
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: var(--white);
+    background: var(--surface);
     padding: 1.25rem;
-    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+    border-bottom: 1px solid var(--border-soft);
     box-shadow: var(--shadow);
   }
 

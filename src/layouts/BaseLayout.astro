@@ -22,6 +22,19 @@ const fullTitle = title.includes('Você Acredita')
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      // Define o tema antes da pintura (sem flash): preferência salva > sistema.
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem('theme');
+        } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#F63734" />
@@ -58,8 +71,8 @@ const fullTitle = title.includes('Você Acredita')
     position: absolute;
     left: -9999px;
     top: 0;
-    background: var(--red);
-    color: white;
+    background: var(--btn-primary-bg);
+    color: var(--on-accent);
     padding: 0.75rem 1rem;
     z-index: 1000;
   }
