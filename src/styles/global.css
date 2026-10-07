@@ -1,17 +1,89 @@
+/* Paleta da marca (fixa) */
 :root {
   --pink: #fdacab;
   --coral: #ff7171;
   --white: #ffffff;
   --red: #f63734;
-  --ink: #1a1a1a;
-  --ink-muted: #4a4a4a;
-  --bg-soft: #fff5f5;
-  --shadow: 0 12px 40px rgba(246, 55, 52, 0.12);
   --radius: 16px;
   --max: 1120px;
   --font-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
   --font-script: "Great Vibes", "Dancing Script", cursive;
   --header-h: 72px;
+
+  /* Tokens semânticos — modo claro (padrão) */
+  --ink: #1a1a1a;
+  --ink-muted: #4a4a4a;
+  --bg: #ffffff;
+  --bg-soft: #fff5f5;
+  --surface: #ffffff;
+  --accent: var(--red);
+  --on-accent: #ffffff;
+  --btn-primary-bg: var(--red);
+  --btn-primary-hover: var(--coral);
+  --border-soft: rgba(253, 172, 171, 0.45);
+  --border-card: rgba(253, 172, 171, 0.55);
+  --border-strong: rgba(253, 172, 171, 0.7);
+  --border-rule: rgba(253, 172, 171, 0.6);
+  --shadow: 0 12px 40px rgba(246, 55, 52, 0.12);
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --hero-bg: linear-gradient(145deg, #fec4c3 0%, var(--pink) 55%, #f99c9b 100%);
+  --hero-ink: var(--ink);
+  --hero-accent: var(--red);
+  --hero-outline-hover: rgba(255, 255, 255, 0.35);
+  --hero-logo-shadow: 0 24px 60px rgba(246, 55, 52, 0.25);
+  --logo-shadow: 0 4px 14px rgba(246, 55, 52, 0.25);
+  --cta-bg: linear-gradient(135deg, var(--bg-soft), #ffe4e4);
+  --chip-bg: var(--bg-soft);
+  --step-bg: var(--coral);
+  --step-ink: #ffffff;
+  --footer-bg: var(--red);
+  --footer-ink: #ffffff;
+  --footer-accent: var(--pink);
+  --footer-link-hover: #ffffff;
+  --footer-rule: rgba(255, 255, 255, 0.2);
+  --footer-border: transparent;
+  --focus: var(--coral);
+}
+
+/*
+ * Modo escuro — mesma marca, fundo carvão quente com toque de vinho.
+ * Modo escuro: ativado só pelo botão no cabeçalho ([data-theme="dark"]).
+ * O padrão é sempre o modo claro.
+ */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f6ebe8;
+  --ink-muted: #d3c0bd;
+  --bg: #1b1315;
+  --bg-soft: #241719;
+  --surface: #2b1c1f;
+  --accent: #ff8a87;
+  --on-accent: #ffffff;
+  --btn-primary-bg: #d12c29;
+  --btn-primary-hover: #e0302d;
+  --border-soft: rgba(253, 172, 171, 0.16);
+  --border-card: rgba(253, 172, 171, 0.2);
+  --border-strong: rgba(253, 172, 171, 0.35);
+  --border-rule: rgba(253, 172, 171, 0.25);
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --header-bg: rgba(27, 19, 21, 0.9);
+  --hero-bg: linear-gradient(145deg, #2a171a 0%, #3b1a20 55%, #4f1f26 100%);
+  --hero-ink: #fff3f1;
+  --hero-accent: #ff8a87;
+  --hero-outline-hover: rgba(255, 138, 135, 0.12);
+  --hero-logo-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --logo-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --cta-bg: linear-gradient(135deg, #2a1a1d, #3a1f23);
+  --chip-bg: rgba(255, 113, 113, 0.14);
+  --step-bg: var(--coral);
+  --step-ink: #2a1215;
+  --footer-bg: #2a0f13;
+  --footer-ink: #f6ebe8;
+  --footer-accent: var(--pink);
+  --footer-link-hover: #ffffff;
+  --footer-rule: rgba(253, 172, 171, 0.18);
+  --footer-border: rgba(246, 55, 52, 0.55);
+  --focus: var(--coral);
 }
 
 *,
@@ -24,11 +96,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Transição suave só durante a troca manual de tema */
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-switching,
+  html.theme-switching * {
+    transition: none !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-serif);
   color: var(--ink);
-  background: var(--white);
+  background: var(--bg);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -40,7 +128,7 @@ img {
 }
 
 a {
-  color: var(--red);
+  color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
@@ -94,26 +182,26 @@ p {
 }
 
 .btn-primary {
-  background: var(--red);
-  color: var(--white);
-  border-color: var(--red);
+  background: var(--btn-primary-bg);
+  color: var(--on-accent);
+  border-color: var(--btn-primary-bg);
 }
 
 .btn-primary:hover {
-  background: var(--coral);
-  border-color: var(--coral);
-  color: var(--white);
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary-hover);
+  color: var(--on-accent);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--red);
+  color: var(--accent);
   border-color: var(--coral);
 }
 
 .btn-outline:hover {
   background: var(--bg-soft);
-  color: var(--red);
+  color: var(--accent);
 }
 
 .btn-white {
@@ -182,8 +270,8 @@ p {
 }
 
 .card {
-  background: var(--white);
-  border: 1px solid rgba(253, 172, 171, 0.55);
+  background: var(--surface);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow);
@@ -202,6 +290,6 @@ p {
 }
 
 :focus-visible {
-  outline: 3px solid var(--coral);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }

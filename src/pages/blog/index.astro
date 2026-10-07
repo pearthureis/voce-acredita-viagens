@@ -71,7 +71,7 @@ const posts = (await getCollection('blog')).sort(
   .page-hero {
     background: var(--bg-soft);
     padding: 3rem 0 2rem;
-    border-bottom: 1px solid rgba(253, 172, 171, 0.45);
+    border-bottom: 1px solid var(--border-soft);
   }
 
   .page-hero h1 {
@@ -109,7 +109,7 @@ const posts = (await getCollection('blog')).sort(
   }
 
   h2 a:hover {
-    color: var(--red);
+    color: var(--accent);
   }
 
   .tags {
@@ -122,8 +122,8 @@ const posts = (await getCollection('blog')).sort(
   }
 
   .tags li {
-    background: var(--bg-soft);
-    color: var(--red);
+    background: var(--chip-bg);
+    color: var(--accent);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.25rem 0.6rem;

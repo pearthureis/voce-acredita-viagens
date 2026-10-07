@@ -22,11 +22,25 @@ const fullTitle = title.includes('Você Acredita')
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      // Define o tema antes da pintura (sem flash): preferência salva > claro (padrão).
+      (function () {
+        var t;
+        try {
+          t = localStorage.getItem('theme');
+        } catch (e) {}
+        if (t !== 'dark' && t !== 'light') {
+          t = 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#F63734" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=3" />
+    <link rel="icon" href="/favicon.ico?v=3" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -57,8 +71,8 @@ const fullTitle = title.includes('Você Acredita')
     position: absolute;
     left: -9999px;
     top: 0;
-    background: var(--red);
-    color: white;
+    background: var(--btn-primary-bg);
+    color: var(--on-accent);
     padding: 0.75rem 1rem;
     z-index: 1000;
   }
