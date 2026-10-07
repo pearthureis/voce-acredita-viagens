@@ -23,14 +23,14 @@ const fullTitle = title.includes('Você Acredita')
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
-      // Define o tema antes da pintura (sem flash): preferência salva > sistema.
+      // Define o tema antes da pintura (sem flash): preferência salva > claro (padrão).
       (function () {
         var t;
         try {
           t = localStorage.getItem('theme');
         } catch (e) {}
         if (t !== 'dark' && t !== 'light') {
-          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          t = 'light';
         }
         document.documentElement.setAttribute('data-theme', t);
       })();

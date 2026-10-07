@@ -47,8 +47,8 @@
 
 /*
  * Modo escuro — mesma marca, fundo carvão quente com toque de vinho.
- * Bloco duplicado: [data-theme="dark"] (definido pelo script no <head>/botão)
- * e prefers-color-scheme como fallback sem JavaScript. Mantenha os dois iguais.
+ * Modo escuro: ativado só pelo botão no cabeçalho ([data-theme="dark"]).
+ * O padrão é sempre o modo claro.
  */
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -84,44 +84,6 @@
   --footer-rule: rgba(253, 172, 171, 0.18);
   --footer-border: rgba(246, 55, 52, 0.55);
   --focus: var(--coral);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    color-scheme: dark;
-    --ink: #f6ebe8;
-    --ink-muted: #d3c0bd;
-    --bg: #1b1315;
-    --bg-soft: #241719;
-    --surface: #2b1c1f;
-    --accent: #ff8a87;
-    --on-accent: #ffffff;
-    --btn-primary-bg: #d12c29;
-    --btn-primary-hover: #e0302d;
-    --border-soft: rgba(253, 172, 171, 0.16);
-    --border-card: rgba(253, 172, 171, 0.2);
-    --border-strong: rgba(253, 172, 171, 0.35);
-    --border-rule: rgba(253, 172, 171, 0.25);
-    --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    --header-bg: rgba(27, 19, 21, 0.9);
-    --hero-bg: linear-gradient(145deg, #2a171a 0%, #3b1a20 55%, #4f1f26 100%);
-    --hero-ink: #fff3f1;
-    --hero-accent: #ff8a87;
-    --hero-outline-hover: rgba(255, 138, 135, 0.12);
-    --hero-logo-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-    --logo-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-    --cta-bg: linear-gradient(135deg, #2a1a1d, #3a1f23);
-    --chip-bg: rgba(255, 113, 113, 0.14);
-    --step-bg: var(--coral);
-    --step-ink: #2a1215;
-    --footer-bg: #2a0f13;
-    --footer-ink: #f6ebe8;
-    --footer-accent: var(--pink);
-    --footer-link-hover: #ffffff;
-    --footer-rule: rgba(253, 172, 171, 0.18);
-    --footer-border: rgba(246, 55, 52, 0.55);
-    --focus: var(--coral);
-  }
 }
 
 *,
