@@ -47,6 +47,12 @@ const { Content } = await render(post);
       </div>
     </header>
 
+    {post.data.heroImage && (
+      <div class="container narrow">
+        <img class="hero-img" src={post.data.heroImage} alt={post.data.heading ?? post.data.title} />
+      </div>
+    )}
+
     <div class="container narrow prose">
       <Content />
     </div>
@@ -103,6 +109,14 @@ const { Content } = await render(post);
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
     border: 1px solid var(--border-strong);
+  }
+
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin: 0 auto 2rem;
   }
 
   .prose {
