@@ -1,0 +1,124 @@
+---
+import { parkScenePlan } from '../lib/park-scenes';
+
+const videoFiles = import.meta.glob('../videos/*.{webm,mp4,mov}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+function videoSrc(stem: string) {
+  const order = ['webm', 'mp4', 'mov'] as const;
+  for (const ext of order) {
+    const match = Object.entries(videoFiles).find(([file]) =>
+      file.replace(/\\/g, '/').endsWith(`/${stem}.${ext}`),
+    );
+    if (match) return match[1];
+  }
+  return '';
+}
+
+const scenes = parkScenePlan.map((scene) => ({
+  ...scene,
+  video: videoSrc(scene.stem),
+}));
+---
+
+<div class="park-scenes">
+  {
+    scenes.map((scene) =>
+      scene.video ? (
+        <article class="park-scene" data-park-scene data-kind={scene.kind}>
+          <div class="park-scene-pin">
+            <div class="container park-scene-layout">
+              <div class="park-scene-frame">
+                <video
+                  class="park-scene-video"
+                  data-src={scene.video}
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  disablepictureinpicture
+                  aria-hidden="true"
+                  tabindex="-1"
+                />
+                <span class="visually-hidden">{scene.label}</span>
+              </div>
+              <div class="park-scene-copy">
+                <h3>{scene.title}</h3>
+                <p>{scene.text}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      ) : null,
+    )
+  }
+</div>
+
+<script>
+  import { initParkScroll } from '../scripts/park-scroll';
+  initParkScroll();
+</script>
+
+<style>
+  .park-scenes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .park-scene-pin {
+    display: flex;
+    align-items: center;
+    padding: 1.75rem 0 2.25rem;
+  }
+
+  .park-scene-layout {
+    display: grid;
+    gap: 1.15rem;
+    align-items: center;
+    width: min(100% - 2rem, var(--max));
+  }
+
+  .park-scene-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .park-scene-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .park-scene-copy {
+    text-align: center;
+    justify-self: center;
+  }
+
+  .park-scene-copy h3 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .park-scene-copy p {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    max-width: 36rem;
+  }
+
+  @media (max-width: 899px) {
+    .park-scene-pin {
+      padding: 1.5rem 0;
+    }
+  }
+</style>

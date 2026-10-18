@@ -26,6 +26,11 @@ function pauseVideo(video: HTMLVideoElement) {
   if (!video.paused) video.pause();
 }
 
+/**
+ * Liga play/pause quando a cena entra na tela.
+ * Não faz scrub do currentTime (isso trava WebM 1080p).
+ * Pin/scrub com ScrollTrigger só com arquivos leves e alfa nativo.
+ */
 export function initParkScroll() {
   const scenes = Array.from(document.querySelectorAll<HTMLElement>('[data-park-scene]'));
   if (!scenes.length) return;
@@ -49,10 +54,8 @@ export function initParkScroll() {
         const video = entry.target.querySelector<HTMLVideoElement>('video');
         if (!video) continue;
         if (entry.isIntersecting && !reduced) {
-          entry.target.classList.add('is-inview');
           void playVideo(video);
         } else {
-          entry.target.classList.remove('is-inview');
           pauseVideo(video);
         }
       }
