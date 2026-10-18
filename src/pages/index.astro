@@ -143,6 +143,17 @@ const services = [
         <p>{orlando.text}</p>
       </article>
     </div>
+    <svg class="visually-hidden" width="0" height="0" aria-hidden="true" focusable="false">
+      <filter id="knockout-black" color-interpolation-filters="sRGB">
+        <feColorMatrix
+          type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  2.5 2.5 2.5 0 -0.2"
+        />
+      </filter>
+    </svg>
     <div class="park-scenes">
       {
         parkScenes.map((scene) => (
@@ -154,6 +165,7 @@ const services = [
                     class="park-scene-video"
                     data-src={scene.video}
                     muted
+                    loop
                     playsinline
                     preload="none"
                     disablepictureinpicture
@@ -382,10 +394,9 @@ const services = [
   }
 
   .park-scene-pin {
-    min-height: calc(100svh - var(--header-h));
     display: flex;
     align-items: center;
-    padding: 1.25rem 0;
+    padding: 1.75rem 0 2.25rem;
   }
 
   .park-scene-layout {
@@ -411,6 +422,7 @@ const services = [
     object-position: center;
     background: transparent;
     pointer-events: none;
+    filter: url(#knockout-black);
   }
 
   .park-scene-copy {
@@ -429,14 +441,7 @@ const services = [
 
   @media (max-width: 899px) {
     .park-scene-pin {
-      min-height: auto;
-      padding: 1.75rem 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .park-scene-pin {
-      min-height: auto;
+      padding: 1.5rem 0;
     }
   }
 
