@@ -5,6 +5,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ShopCTA from '../components/ShopCTA.astro';
+const videoFiles = import.meta.glob('../videos/*.{webm,mp4,mov}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+function videoSrc(stem: string) {
+  const order = ['webm', 'mp4', 'mov'] as const;
+  for (const ext of order) {
+    const match = Object.entries(videoFiles).find(([file]) =>
+      file.replace(/\\/g, '/').endsWith(`/${stem}.${ext}`),
+    );
+    if (match) return match[1];
+  }
+  throw new Error(`Vídeo não encontrado: ${stem}`);
+}
+
+const videoCastle = videoSrc('Manter_vídeo_castelo_fogos_1080p_20261018124903');
+const videoWhale = videoSrc('Orca_breaching_animation_sequence_1080p_20261018125016');
+const videoGlobe = videoSrc('universal');
 
 const shopUrl = 'https://voceacreditaviagensv2.justtraveltour.com/pt';
 const waUrl = 'https://wa.me/5511994584598';
@@ -13,22 +33,32 @@ const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const parks = [
+const orlando = {
+  title: 'Orlando',
+  text: 'A capital da magia: resorts, gastronomia e dias inesquecíveis em família.',
+};
+
+const parkScenes = [
   {
-    title: 'Orlando',
-    text: 'A capital da magia: resorts, gastronomia e dias inesquecíveis em família.',
-  },
-  {
+    kind: 'castle',
     title: 'Disney',
     text: 'Magic Kingdom, EPCOT, Hollywood Studios e Animal Kingdom com roteiro sob medida.',
+    video: videoCastle,
+    label: 'Castelo com fogos no Magic Kingdom',
   },
   {
+    kind: 'globe',
     title: 'Universal',
     text: 'Todos os parques roterizados para que consiga conhecer todos!.',
+    video: videoGlobe,
+    label: 'Globo da Universal Studios',
   },
   {
+    kind: 'whale',
     title: 'E mais...',
     text: 'Muitos outros parques e atrações nos EUA.',
+    video: videoWhale,
+    label: 'Baleia saltando na água',
   },
 ];
 
@@ -108,19 +138,39 @@ const services = [
       <p class="section-lead">
         Magia, adrenalina e memórias em família. Com planejamento cuidadoso do início ao fim!
       </p>
-      <div class="card-grid cols-4">
-        {
-          parks.map((park) => (
-            <article class="card park-card">
-              <span class="park-icon" aria-hidden="true">
-                {park.icon}
-              </span>
-              <h3>{park.title}</h3>
-              <p>{park.text}</p>
-            </article>
-          ))
-        }
-      </div>
+      <article class="card park-orlando">
+        <h3>{orlando.title}</h3>
+        <p>{orlando.text}</p>
+      </article>
+    </div>
+    <div class="park-scenes">
+      {
+        parkScenes.map((scene) => (
+          <article class="park-scene" data-park-scene data-kind={scene.kind}>
+            <div class="park-scene-pin">
+              <div class="container park-scene-layout">
+                <div class="park-scene-frame">
+                  <video
+                    class="park-scene-video"
+                    data-src={scene.video}
+                    muted
+                    playsinline
+                    preload="none"
+                    disablepictureinpicture
+                    aria-hidden="true"
+                    tabindex="-1"
+                  />
+                  <span class="visually-hidden">{scene.label}</span>
+                </div>
+                <div class="park-scene-copy">
+                  <h3>{scene.title}</h3>
+                  <p>{scene.text}</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 
@@ -231,6 +281,11 @@ const services = [
   <Footer slot="footer" />
 </BaseLayout>
 
+<script>
+  import { initParkScroll } from '../scripts/park-scroll';
+  initParkScroll();
+</script>
+
 <style>
   .hero {
     background: var(--hero-bg);
@@ -296,7 +351,14 @@ const services = [
     box-shadow: var(--hero-logo-shadow);
   }
 
-  .park-card h3,
+  .park-orlando {
+    max-width: 36rem;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+
+  .park-orlando h3,
+  .park-scene-copy h3,
   .step-card h3,
   .service-card h3,
   .post-card h3 {
@@ -304,7 +366,8 @@ const services = [
     margin-bottom: 0.4rem;
   }
 
-  .park-card p,
+  .park-orlando p,
+  .park-scene-copy p,
   .step-card p,
   .service-card p,
   .post-card p {
@@ -313,10 +376,68 @@ const services = [
     margin-bottom: 0.85rem;
   }
 
-  .park-icon {
-    font-size: 1.75rem;
+  .park-scenes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .park-scene-pin {
+    min-height: calc(100svh - var(--header-h));
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 0;
+  }
+
+  .park-scene-layout {
+    display: grid;
+    gap: 1.15rem;
+    align-items: center;
+    width: min(100% - 2rem, var(--max));
+  }
+
+  .park-scene-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .park-scene-video {
     display: block;
-    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .park-scene-copy {
+    text-align: center;
+    justify-self: center;
+  }
+
+  .park-scene-copy h3 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .park-scene-copy p {
+    margin-bottom: 0;
+    max-width: 36rem;
+  }
+
+  @media (max-width: 899px) {
+    .park-scene-pin {
+      min-height: auto;
+      padding: 1.75rem 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .park-scene-pin {
+      min-height: auto;
+    }
   }
 
   .step-n {
