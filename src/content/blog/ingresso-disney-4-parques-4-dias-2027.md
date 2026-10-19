@@ -5,6 +5,9 @@ description: "A Disney trouxe de volta o ingresso de 4 dias e 4 parques para a A
 pubDate: 2026-10-19
 author: "Ellen Reis"
 tags: ["Orlando", "Disney", "Ingressos"]
+heroImage: "/blog/ingresso-4-parques/quatro-parques-disney.jpg"
+heroAlt: "Colagem com os ícones dos 4 parques da Disney: Castelo da Cinderela (Magic Kingdom), Spaceship Earth (EPCOT), Tower of Terror (Hollywood Studios) e Árvore da Vida (Animal Kingdom)"
+heroCredit: 'Fotos: TheWanderingTraders, Jedi94, Alexf e Jedi94 via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br">CC BY-SA 4.0</a> / <a href="https://creativecommons.org/licenses/by/3.0/deed.pt-br">CC BY 3.0</a>).'
 ---
 
 Boa notícia pra quem está planejando Orlando no primeiro semestre de 2027! A Disney trouxe de volta o **4-Day, 4-Park Magic Ticket**, que no Brasil foi divulgado como **Ticket Mágico de 4 Dias, 4 Parques**. É uma oferta voltada ao público da América Latina, com um dia em cada um dos quatro parques temáticos do Walt Disney World.

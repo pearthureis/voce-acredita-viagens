@@ -50,6 +50,7 @@ const { Content } = await render(post);
     {post.data.heroImage && (
       <div class="container narrow">
         <img class="hero-img" src={post.data.heroImage} alt={post.data.heroAlt ?? post.data.heading ?? post.data.title} />
+        {post.data.heroCredit && <p class="hero-credit" set:html={post.data.heroCredit} />}
       </div>
     )}
 
@@ -117,6 +118,17 @@ const { Content } = await render(post);
     height: auto;
     border-radius: 16px;
     margin: 0 auto 2rem;
+  }
+
+  .hero-credit {
+    margin: -1.25rem 0 2rem;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    text-align: center;
+  }
+
+  .hero-credit :global(a) {
+    color: inherit;
   }
 
   .prose :global(img) {
