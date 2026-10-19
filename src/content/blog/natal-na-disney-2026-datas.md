@@ -1,7 +1,7 @@
 ---
 title: "Natal na Disney 2026: datas da festa, do EPCOT e do Hollywood Studios"
 heading: "Natal na Disney 2026: todas as datas da temporada de festas"
-description: "Natal na Disney 2026: datas e preços da festa do Magic Kingdom, do festival do EPCOT, da Jollywood Nights e das novidades do Hollywood Studios."
+description: "Natal na Disney 2026: datas da festa do Magic Kingdom, do festival do EPCOT, da Jollywood Nights e das novidades do Hollywood Studios."
 pubDate: 2026-10-15
 author: "Ellen Reis"
 tags: ["Orlando", "Disney", "Natal"]
@@ -19,7 +19,7 @@ As noites confirmadas são:
 - **Novembro:** 8, 9, 12, 13, 15, 17, 19, 20, 24, 25, 27 e 29
 - **Dezembro:** 1, 3, 4, 6, 8, 10, 11, 13, 15, 17, 18, 20 e 22
 
-Segundo o site oficial da Disney, o ingresso custa **de US$ 189 a US$ 229 mais taxas**, dependendo da data, e crianças de 3 a 9 anos pagam US$ 10 a menos. Portadores de passe anual e membros do Disney Vacation Club têm desconto de US$ 10 em algumas noites.
+Segundo o site oficial da Disney, o valor do ingresso **varia conforme a data**, e crianças de 3 a 9 anos pagam um pouco menos. Portadores de passe anual e membros do Disney Vacation Club têm desconto em algumas noites.
 
 Um detalhe importante: a festa tem ingresso separado, que não vem incluído no ingresso comum do parque. Nas noites de festa, o Magic Kingdom fecha mais cedo para quem não tem esse ingresso, então vale conferir o horário do parque antes de montar o roteiro.
 
@@ -37,7 +37,7 @@ As noites confirmadas são:
 - **Dezembro:** 5, 7, 12, 14, 19, 21 e 23
 - **Janeiro:** 3 e 5
 
-O site oficial informa ingressos **de US$ 169 a US$ 199 mais taxas**, conforme a data, com US$ 10 de desconto para crianças de 3 a 9 anos. Passe anual e Disney Vacation Club também têm desconto de US$ 10, válido em todas as noites.
+Segundo o site oficial, o valor do ingresso **varia conforme a data**, com desconto para crianças de 3 a 9 anos. Passe anual e Disney Vacation Club também têm desconto, válido em todas as noites.
 
 ## Novidades de Natal no Hollywood Studios
 
@@ -60,7 +60,7 @@ A Disney ainda não detalhou se as versões de Natal tocam o dia todo ou só em 
 - **13/11/2026 a 6/1/2027:** temporada de festas da Walt Disney World e Walt Disney Presents com exposição e curtas clássicos (Hollywood Studios)
 - **27/11 a 30/12/2026:** Festival of the Holidays (EPCOT, incluído no ingresso do parque)
 
-Preços e datas podem mudar. Antes de comprar, confira a disponibilidade no site oficial da Disney.
+Datas podem mudar. Antes de comprar, confira a disponibilidade no site oficial da Disney.
 
 ## Vamos colocar o Natal no seu roteiro?
 
