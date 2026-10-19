@@ -5,8 +5,6 @@ description: "A Disney trouxe de volta o ingresso de 4 dias e 4 parques para a A
 pubDate: 2026-10-19
 author: "Ellen Reis"
 tags: ["Orlando", "Disney", "Ingressos"]
-heroImage: "/blog/ingresso-4-parques/castelo-cinderela-magic-kingdom.jpg"
-heroAlt: "Castelo da Cinderela no Magic Kingdom, no Walt Disney World, sob céu azul"
 ---
 
 Boa notícia pra quem está planejando Orlando no primeiro semestre de 2027! A Disney trouxe de volta o **4-Day, 4-Park Magic Ticket**, que no Brasil foi divulgado como **Ticket Mágico de 4 Dias, 4 Parques**. É uma oferta voltada ao público da América Latina, com um dia em cada um dos quatro parques temáticos do Walt Disney World.
