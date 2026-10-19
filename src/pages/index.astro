@@ -273,6 +273,13 @@ const services = [
     width: min(100%, 380px);
     border-radius: 24px;
     box-shadow: var(--hero-logo-shadow);
+    transition: transform var(--motion) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-logo:hover {
+      transform: scale(1.025);
+    }
   }
 
   .park-card h3,
@@ -352,6 +359,13 @@ const services = [
     display: block;
     border-radius: 24px;
     box-shadow: var(--shadow);
+    transition: transform var(--motion) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .about-photo:hover {
+      transform: scale(1.02);
+    }
   }
 
   .post-card time {
@@ -363,6 +377,7 @@ const services = [
   .post-card h3 a {
     text-decoration: none;
     color: var(--ink);
+    transition: color var(--motion-fast) ease;
   }
 
   .post-card h3 a:hover {

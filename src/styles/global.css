@@ -43,6 +43,9 @@
   --footer-rule: rgba(255, 255, 255, 0.2);
   --footer-border: transparent;
   --focus: var(--coral);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion: 0.32s;
+  --motion-fast: 0.18s;
 }
 
 /*
@@ -131,10 +134,13 @@ a {
   color: var(--accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: color var(--motion-fast) var(--ease-out),
+    text-underline-offset var(--motion-fast) var(--ease-out);
 }
 
 a:hover {
   color: var(--coral);
+  text-underline-offset: 5px;
 }
 
 h1,
@@ -173,18 +179,25 @@ p {
   font-weight: 700;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  text-underline-offset: 3px;
+  transition: transform var(--motion) var(--ease-out), background var(--motion-fast) ease,
+    color var(--motion-fast) ease, border-color var(--motion-fast) ease,
+    box-shadow var(--motion) var(--ease-out);
 }
 
 .btn:hover {
-  transform: translateY(-1px);
   color: inherit;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.97);
 }
 
 .btn-primary {
   background: var(--btn-primary-bg);
   color: var(--on-accent);
   border-color: var(--btn-primary-bg);
+  box-shadow: 0 6px 18px rgba(246, 55, 52, 0.22);
 }
 
 .btn-primary:hover {
@@ -208,12 +221,31 @@ p {
   background: var(--white);
   color: var(--red);
   border-color: var(--white);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.18);
 }
 
 .btn-white:hover {
   background: var(--pink);
   border-color: var(--pink);
   color: var(--red);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 10px 26px rgba(246, 55, 52, 0.32);
+  }
+
+  .btn-outline:hover {
+    box-shadow: 0 8px 20px rgba(246, 55, 52, 0.1);
+  }
+
+  .btn-white:hover {
+    box-shadow: 0 10px 24px rgba(253, 172, 171, 0.45);
+  }
 }
 
 .section {
@@ -275,6 +307,20 @@ p {
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow);
+  transition: transform var(--motion) var(--ease-out), box-shadow var(--motion) var(--ease-out),
+    border-color var(--motion-fast) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: 0 16px 40px rgba(246, 55, 52, 0.16);
+  }
+
+  :root[data-theme="dark"] .card:hover {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  }
 }
 
 .visually-hidden {
@@ -292,4 +338,19 @@ p {
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -181,5 +181,13 @@ const { Content } = await render(post);
   .back a {
     font-weight: 700;
     text-decoration: none;
+    display: inline-block;
+    transition: transform var(--motion) var(--ease-out), color var(--motion-fast) ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .back a:hover {
+      transform: translateX(-4px);
+    }
   }
 </style>

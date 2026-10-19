@@ -137,6 +137,7 @@ const pathname = Astro.url.pathname;
     text-decoration: none;
     color: var(--ink);
     margin-right: auto;
+    transition: color var(--motion-fast) ease;
   }
 
   .brand-logo {
@@ -145,6 +146,13 @@ const pathname = Astro.url.pathname;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: var(--logo-shadow);
+    transition: transform var(--motion) var(--ease-out), box-shadow var(--motion) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .brand:hover .brand-logo {
+      transform: scale(1.05) rotate(-2deg);
+    }
   }
 
   .brand-text {
@@ -181,6 +189,22 @@ const pathname = Astro.url.pathname;
     color: var(--ink);
     font-weight: 700;
     font-size: 0.95rem;
+    position: relative;
+    transition: color var(--motion-fast) ease;
+  }
+
+  .nav a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--motion) var(--ease-out);
   }
 
   .nav a:not(.btn):hover,
@@ -188,10 +212,19 @@ const pathname = Astro.url.pathname;
     color: var(--accent);
   }
 
+  .nav a.active::after {
+    transform: scaleX(1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav a:not(.btn):hover::after {
+      transform: scaleX(1);
+    }
+  }
+
   .theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     flex-shrink: 0;
     width: 40px;
     height: 40px;
@@ -201,26 +234,44 @@ const pathname = Astro.url.pathname;
     background: transparent;
     color: var(--accent);
     cursor: pointer;
-    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    transition: background var(--motion-fast) ease, border-color var(--motion-fast) ease,
+      transform var(--motion) var(--ease-out);
   }
 
   .theme-toggle:hover {
     background: var(--bg-soft);
     border-color: var(--coral);
-    transform: translateY(-1px);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+    }
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.94);
   }
 
   .theme-toggle svg {
+    grid-area: 1 / 1;
     display: block;
+    transition: opacity var(--motion) var(--ease-out), transform var(--motion) var(--ease-out);
   }
 
-  .theme-toggle .icon-sun,
+  .theme-toggle .icon-sun {
+    opacity: 0;
+    transform: rotate(-70deg) scale(0.5);
+  }
+
   :global(html[data-theme='dark']) .theme-toggle .icon-moon {
-    display: none;
+    opacity: 0;
+    transform: rotate(70deg) scale(0.5);
   }
 
   :global(html[data-theme='dark']) .theme-toggle .icon-sun {
-    display: block;
+    opacity: 1;
+    transform: none;
   }
 
   /* Sem JavaScript o botão não funciona: esconda-o (o tema segue o sistema). */
@@ -231,6 +282,7 @@ const pathname = Astro.url.pathname;
   .nav-toggle {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
     background: none;
     border: none;
@@ -243,19 +295,50 @@ const pathname = Astro.url.pathname;
     width: 22px;
     height: 2px;
     background: var(--accent);
+    transform-origin: center;
+    transition: transform var(--motion) var(--ease-out), opacity var(--motion-fast) ease;
   }
 
-  .nav.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: var(--header-h);
-    left: 0;
-    right: 0;
-    background: var(--surface);
-    padding: 1.25rem;
-    border-bottom: 1px solid var(--border-soft);
-    box-shadow: var(--shadow);
+  .nav-toggle[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (max-width: 767px) {
+    .nav {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: var(--header-h);
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--border-soft);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-0.6rem);
+      transition: opacity var(--motion) var(--ease-out), transform var(--motion) var(--ease-out),
+        visibility 0s linear var(--motion);
+    }
+
+    .nav.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+      transition: opacity var(--motion) var(--ease-out), transform var(--motion) var(--ease-out),
+        visibility 0s linear 0s;
+    }
   }
 
   @media (min-width: 768px) {
