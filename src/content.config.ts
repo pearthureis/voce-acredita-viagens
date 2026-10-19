@@ -13,6 +13,7 @@ const blog = defineCollection({
     author: z.string().default('Ellen Reis'),
     tags: z.array(z.string()).default([]),
     heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
   }),
 });
 
