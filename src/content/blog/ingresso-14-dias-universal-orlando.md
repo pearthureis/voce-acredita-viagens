@@ -18,6 +18,8 @@ O ingresso dá 14 dias seguidos para circular livremente entre os quatro parques
 - **Universal Epic Universe**, o parque mais novo do complexo
 - **Universal Volcano Bay**, o parque aquático
 
+![Mapa ilustrado dos 4 parques da Universal Orlando: Universal Studios Florida, Islands of Adventure, Epic Universe e Volcano Bay](/blog/universal-14-dias/mapa-parques-universal-orlando.jpg)
+
 ## Park-to-Park e Hogwarts Express
 
 O ingresso inclui o **acesso Park-to-Park**, que permite visitar mais de um parque no mesmo dia. Com isso, dá para embarcar no **Hogwarts Express**, o trem que liga o Universal Studios Florida ao Islands of Adventure.
