@@ -5,6 +5,9 @@ description: "Ingresso de 14 dias da Universal Orlando: parques incluídos em ca
 pubDate: 2026-10-22
 author: "Ellen Reis"
 tags: ["Orlando", "Universal", "Ingressos"]
+heroImage: "/blog/universal-14-dias/quatro-parques-universal.jpg"
+heroAlt: "Colagem com os 4 parques da Universal Orlando: o globo do Universal Studios Florida, o castelo de Hogwarts no Islands of Adventure, o Celestial Park do Epic Universe e o vulcão Krakatau do Volcano Bay"
+heroCredit: 'Fotos: Eden, Janine and Jim, HarshLight, Gfgbeach e elisfkc via <a href="https://commons.wikimedia.org/">Wikimedia Commons</a> (<a href="https://creativecommons.org/licenses/by/2.0/deed.pt-br">CC BY 2.0</a> / <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.pt-br">CC0</a> / <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.pt-br">CC BY-SA 2.0</a>).'
 ---
 
 Pra quem quer passar bastante tempo na Universal, existe o **Ingresso Universal Orlando All Parks**, com **14 dias consecutivos** de acesso. A gente explica abaixo o que ele inclui.
