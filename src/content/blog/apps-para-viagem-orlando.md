@@ -84,13 +84,13 @@ O app do grupo Simon, dono de shoppings e outlets em Orlando, traz mapa das loja
 
 📲 Baixar: <a href="https://play.google.com/store/apps/details?id=com.simon.app.simonmalls" target="_blank" rel="noopener noreferrer">Google Play (Android)</a> · <a href="https://apps.apple.com/br/app/simon-malls-mills-outlets/id395128180" target="_blank" rel="noopener noreferrer">App Store (iPhone)</a>
 
-<img src="/blog/apps-orlando/oanda.webp" alt="Ícone do app Conversor de Moeda OANDA" width="80" height="80" loading="lazy" style="width:80px;height:80px;border-radius:18px;margin:1.5rem 0 0.25rem;box-shadow:0 2px 8px rgba(0,0,0,.12);" />
+<img src="/blog/apps-orlando/currency-converter.webp" alt="Ícone do app Currency Converter" width="80" height="80" loading="lazy" style="width:80px;height:80px;border-radius:18px;margin:1.5rem 0 0.25rem;box-shadow:0 2px 8px rgba(0,0,0,.12);" />
 
 ## Currency Converter
 
-Um conversor de moedas, como o da OANDA, ajuda na hora das compras, com cotação atualizada e calculadora para converter os preços de dólar para real.
+O Currency Converter ajuda na hora das compras, com cotação atualizada e calculadora para converter os preços de dólar para real.
 
-📲 Baixar: <a href="https://play.google.com/store/apps/details?id=com.oanda.currencyconverter" target="_blank" rel="noopener noreferrer">Google Play (Android)</a> · <a href="https://apps.apple.com/br/app/conversor-de-moeda-oanda/id326884235" target="_blank" rel="noopener noreferrer">App Store (iPhone)</a>
+📲 Baixar: <a href="https://play.google.com/store/apps/details?id=com.mezhevikin.converter" target="_blank" rel="noopener noreferrer">Google Play (Android)</a> · <a href="https://apps.apple.com/br/app/id1457309557" target="_blank" rel="noopener noreferrer">App Store (iPhone)</a>
 
 ## Jogos offline
 
