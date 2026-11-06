@@ -5,6 +5,9 @@ description: "No Disney Accelerator Demo Day 2026, Disney e FieldAI exploram rob
 pubDate: 2026-11-06
 author: "Ellen Reis"
 tags: ["Orlando", "Disney", "Novidades"]
+heroImage: "/blog/robos-estacionamento/frame-2816-robo-laranja-dashcam.jpg"
+heroAlt: "Robô laranja de estacionamento da FieldAI no teste do Disney Accelerator Demo Day 2026"
+heroCredit: "Vídeo: Disney e FieldAI, recorte do Disney Accelerator Demo Day 2026."
 ---
 
 No **Disney Accelerator Demo Day 2026**, realizado em **3 de novembro** no lot dos Walt Disney Studios, a Disney mostrou uma colaboração com a FieldAI: um projeto exploratório de robôs que poderiam ajudar nas operações de estacionamento. A ideia virou assunto rápido nas redes, então vale deixar claro o que já foi anunciado e o que ainda não.
