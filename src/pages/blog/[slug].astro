@@ -190,4 +190,14 @@ const { Content } = await render(post);
       transform: translateX(-4px);
     }
   }
+
+  .prose :global(figure.video-embed) {
+    margin: 1.75rem 0;
+  }
+  .prose :global(figure.video-embed figcaption) {
+    margin-top: 0.55rem;
+    font-size: 0.85rem;
+    color: var(--muted, #6b6b6b);
+  }
+
 </style>
