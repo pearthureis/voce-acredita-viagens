@@ -5,6 +5,9 @@ description: "Epic Universe ganha montanha-russa coberta no Dark Universe, ao la
 pubDate: 2026-11-09
 author: "Ellen Reis"
 tags: ["Orlando", "Universal", "Epic Universe"]
+heroImage: "/blog/epic-dark-universe/capa-dark-universe.jpg"
+heroAlt: "Dark Universe no Universal Epic Universe, área dos clássicos monstros da Universal"
+heroCredit: "Foto: Universal Orlando Resort / Universal Destinations & Experiences"
 ---
 
 O Universal Epic Universe ainda nem completou muito tempo de vida e já tem novidade a caminho. Foi anunciada uma **montanha-russa coberta** para a área **Dark Universe**, com obras já em andamento e abertura prevista **nos próximos anos**.
@@ -18,6 +21,12 @@ A nova atração fica **ao lado de Monsters Unchained: The Frankenstein Experime
 É uma montanha-russa **100% coberta** (indoor), no estilo thrill. Fora isso, os detalhes da história, do layout e da experiência ainda não foram divulgados. Mais informações vêm mais adiante.
 
 ## O Dark Universe hoje
+
+
+<figure>
+  <img src="/blog/epic-dark-universe/portal-dark-universe.jpg" alt="Portal de entrada do Dark Universe no Universal Epic Universe" loading="lazy" />
+  <figcaption>Foto: Universal Orlando Resort / Universal Destinations & Experiences</figcaption>
+</figure>
 
 Enquanto a nova montanha-russa não chega, a área já tem duas atrações principais:
 
