@@ -5,6 +5,9 @@ description: "Piratas do Caribe no Magic Kingdom fecha a partir de 11/01/2027 e 
 pubDate: 2026-11-23
 author: "Ellen Reis"
 tags: ["Orlando", "Disney", "Magic Kingdom", "Novidades"]
+heroImage: "/blog/piratas-caribe/fachada-piratas-magic-kingdom.jpg"
+heroAlt: "Fachada de Pirates of the Caribbean no Magic Kingdom, no Walt Disney World, à noite"
+heroCredit: "Foto: Disney Parks / Walt Disney World"
 ---
 
 A clássica **Pirates of the Caribbean**, no Magic Kingdom, do Walt Disney World, vai fechar para reforma em 2027. A atração deixa de operar a partir de **11 de janeiro de 2027**, então **10 de janeiro** é o último dia para andar nela antes das obras. A volta está prevista para **perto do fim de 2027**, ainda **sem data exata**.
@@ -20,6 +23,11 @@ As novidades concentram-se em cenas como **Dead Man’s Cove** e **Hurricane Lag
 - Na **Dead Man’s Cove**, o tesouro aparece espalhado pela gruta, com iluminação e cenários novos que preparam a chegada à praia.
 - Na **cena da praia**, entram detalhes novos: os piratas tentaram levar o tesouro até ali para enterrá-lo, mas as coisas não saíram como planejado.
 - No **Hurricane Lagoon**, a cena também ganha magia nova.
+
+<figure>
+  <img src="/blog/piratas-caribe/cena-prisao-cachorro.jpg" alt="Cena clássica de Pirates of the Caribbean no Magic Kingdom: piratas na prisão tentam alcançar a chave com o cão" loading="lazy" />
+  <figcaption>Foto: Disney Parks / Walt Disney World</figcaption>
+</figure>
 
 O restante do clássico segue no lugar: a descida de barco, a batalha com o galeão, a cidade em chamas e a trilha que todo mundo canta.
 
