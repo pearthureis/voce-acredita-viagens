@@ -5,6 +5,9 @@ description: "SeaWorld Orlando tem Sesame Street Land, golfinhos, pinguins, Orca
 pubDate: 2026-11-25
 author: "Ellen Reis"
 tags: ["Orlando", "SeaWorld", "Família"]
+heroImage: "/blog/seaworld/sesame-street-land-elmo.jpg"
+heroAlt: "Elmo e Abby na calçada do 123 na Sesame Street Land, no SeaWorld Orlando"
+heroCredit: "Foto: SeaWorld Orlando"
 ---
 
 Quem pensa no SeaWorld Orlando só nas orcas acaba deixando muita coisa de fora. O parque mistura área pra criança pequena, encontros com animais e montanhas-russas de respeito, então dá pra montar um dia que funciona pra idades diferentes.
