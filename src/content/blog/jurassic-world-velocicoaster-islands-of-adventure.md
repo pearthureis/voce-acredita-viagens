@@ -5,6 +5,9 @@ description: "VelociCoaster no Islands of Adventure: lançamento a cerca de 113 
 pubDate: 2026-11-27
 author: "Ellen Reis"
 tags: ["Orlando", "Universal", "Islands of Adventure", "Montanhas-russas", "Você encararia?"]
+heroImage: "/blog/velocicoaster/entrada-e-top-hat.jpg"
+heroAlt: "Entrada da Jurassic World VelociCoaster no Islands of Adventure, com o top hat da montanha-russa ao fundo"
+heroCredit: "Foto: Universal Orlando Resort"
 ---
 
 Cerca de **113 km/h** em 2,4 segundos e **trava só no colo**. Essa é a Jurassic World VelociCoaster, no **Islands of Adventure**. A montanha-russa de lançamento mais rápida e mais alta da Flórida não pede desculpa: pede coragem.
@@ -14,6 +17,13 @@ Cerca de **113 km/h** em 2,4 segundos e **trava só no colo**. Essa é a Jurassi
 São **dois lançamentos**. O mais rápido chega a **70 mph — uns 113 km/h — em 2,4 segundos**. Não é o tipo de aceleração que a gente sente todo dia.
 
 A trilha sobe uns **47 metros** (155 pés) e cai numa descida de **80 graus**. No caminho, há **4 inversões**, inclusive um giro de **360 graus** bem acima da lagoa do parque. E, no meio disso tudo, a trava é só a de colo.
+
+<figure>
+  <img src="/blog/velocicoaster/top-hat.jpg" alt="Trem da Jurassic World VelociCoaster no ponto mais alto do top hat, no Islands of Adventure" loading="lazy" />
+  <figcaption>Foto: Universal Orlando Resort</figcaption>
+</figure>
+
+
 
 ## Antes de entrar
 
