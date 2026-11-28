@@ -5,6 +5,9 @@ description: "The Incredible Hulk Coaster no Islands of Adventure: lançamento a
 pubDate: 2026-11-27
 author: "Ellen Reis"
 tags: ["Orlando", "Universal", "Islands of Adventure", "Montanhas-russas", "Você encararia?"]
+heroImage: "/blog/hulk/estatua-hulk-tubo-lancamento.jpg"
+heroAlt: "Estátua do Hulk na entrada da The Incredible Hulk Coaster, no Islands of Adventure, com o tubo verde de lançamento ao fundo"
+heroCredit: "Foto: Universal Orlando Resort"
 ---
 
 Lançamento a cerca de **108 km/h**, **7 inversões** e **dois túneis**. Essa é a The Incredible Hulk Coaster, na **Marvel Super Hero Island**, no **Islands of Adventure**. Você se oferece para um experimento científico inspirado na pesquisa do Dr. Bruce Banner — e o que vem depois já começa no lançamento.
@@ -12,6 +15,11 @@ Lançamento a cerca de **108 km/h**, **7 inversões** e **dois túneis**. Essa �
 ## Os números da atração
 
 O lançamento joga o trem para cima e chega a uma velocidade máxima de cerca de **108 km/h** (67 mph). No percurso, são **7 inversões** e **dois túneis**.
+
+<figure>
+  <img src="/blog/hulk/inversoes-sobre-a-lagoa-noite.jpg" alt="The Incredible Hulk Coaster à noite, com as inversões iluminadas em verde sobre a lagoa do Islands of Adventure" loading="lazy" />
+  <figcaption>Foto: Universal Orlando Resort</figcaption>
+</figure>
 
 No mesmo parque está a [Jurassic World VelociCoaster](/blog/jurassic-world-velocicoaster-islands-of-adventure/), a outra montanha-russa da série "Você encararia?". Cada uma com o seu jeito de acelerar o coração.
 
